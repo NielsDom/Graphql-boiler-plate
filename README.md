@@ -32,3 +32,21 @@
   }
 }
 ```
+
+Or
+
+```{
+  query getUser($id: ID!) {
+    user(id: $id){
+      email
+      name
+    }
+  }
+}
+```
+
+Variable ->
+```{
+  "id": "2"
+}
+```
