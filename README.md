@@ -4,7 +4,8 @@
 
 ##### Get all users: 
 
-```{
+```
+{
   users {
     id,
     email
@@ -14,7 +15,8 @@
 
 ##### Get specific user:
 
-```{
+```
+{
   user(id: "1") {
     email,
     name
@@ -24,7 +26,8 @@
 
 ##### Add user:
 
-```mutation {
+```
+mutation {
   addUser(email: "jambon@fefe.com") {
     id,
     email,
@@ -35,7 +38,8 @@
 
 Or
 
-```{
+```
+{
   query getUser($id: ID!) {
     user(id: $id){
       email
@@ -46,7 +50,8 @@ Or
 ```
 
 Variable ->
-```{
+```
+{
   "id": "2"
 }
 ```
