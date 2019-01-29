@@ -9,7 +9,8 @@
     id,
     email
   }
-}```
+}
+```
 
 ##### Get specific user:
 
@@ -18,7 +19,8 @@
     email,
     name
   }
-}```
+}
+```
 
 ##### Add user:
 
@@ -28,4 +30,5 @@
     email,
     name
   }
-}```
+}
+```
