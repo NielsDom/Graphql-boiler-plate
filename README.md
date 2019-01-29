@@ -39,12 +39,10 @@ mutation {
 Or
 
 ```
-{
-  query getUser($id: ID!) {
-    user(id: $id){
-      email
-      name
-    }
+query getUser($id: ID!) {
+  user(id: $id){
+    email
+    name
   }
 }
 ```
