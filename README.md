@@ -1,4 +1,4 @@
-# Full stack GraphQl training
+# Express-graphql boiler
 
 ### http://localhost:3000/graphql
 
@@ -23,6 +23,22 @@
   }
 }
 ```
+Or
+
+```
+query getUser($id: ID!) {
+  user(id: $id){
+    email
+    name
+  }
+}
+```
+Variable ->
+```
+{
+  "id": "2"
+}
+```
 
 ##### Add user:
 
@@ -36,20 +52,13 @@ mutation {
 }
 ```
 
-Or
+##### Get specific user crossed queries:
 
-```
-query getUser($id: ID!) {
-  user(id: $id){
+{
+  users {
     email
-    name
+    messages {
+      body
+    }
   }
 }
-```
-
-Variable ->
-```
-{
-  "id": "2"
-}
-```

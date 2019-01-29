@@ -15,13 +15,45 @@ const db = {
       email: 'email@gmail.com',
       name: 'momo2'
     }
+  ],
+  messages: [
+    {
+      id: '1',
+      userId: '1',
+      body: 'Hello',
+      createdAt: Date.now()
+    },
+    {
+      id: '2',
+      userId: '2',
+      body: 'Hello2',
+      createdAt: Date.now()
+    },
+    {
+      id: '3',
+      userId: '1',
+      body: 'Hello3',
+      createdAt: Date.now()
+    }
   ]
+}
+
+class User {
+  constructor (user) {
+    Object.assign(this, user)
+  }
+
+  messages() {
+    return db.messages.filter(message => message.userId === this.id)
+  }
+
 }
 
 const schema = buildSchema(`
   type Query {
     users: [User!]!
     user(id: ID!): User
+    messages: [Message!]!
   }
 
   type Mutation {
@@ -33,12 +65,20 @@ const schema = buildSchema(`
     email: String!
     name: String
     avatar: String
+    messages: [Message!]!
+  }
+
+  type Message {
+    id: ID!
+    body: String!
+    createdAt: String
   }
 `)
 
 const rootValue = {
-  users: ()=> db.users,
+  users: ()=> db.users.map(user => new User(user)),
   user: args => db.users.find(user => user.id === args.id),
+  messages: () => db.messages,
   addUser: ({ email, name }) => {
     const user = {
       id: crypto.randomBytes(10).toString('hex'),
