@@ -52,7 +52,7 @@ mutation {
 }
 ```
 
-##### Get specific user crossed queries:
+##### Get users crossed queries:
 ```
 {
   users {
