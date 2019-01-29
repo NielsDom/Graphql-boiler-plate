@@ -53,7 +53,7 @@ mutation {
 ```
 
 ##### Get specific user crossed queries:
-
+```
 {
   users {
     email
@@ -62,3 +62,4 @@ mutation {
     }
   }
 }
+```
